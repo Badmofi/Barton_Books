@@ -1,0 +1,20 @@
+﻿@model Barton_Books.Models.Invoice
+@{
+    ViewBag.Title = "Upsert";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm("Upsert", "Invoices", FormMethod.Post))
+{
+    @Html.TextBoxFor(i => i.InvoiceID, new { @class = "form-control" })
+    @Html.TextBoxFor(i => i.CustomerID, new { @class = "form-control" })
+    @Html.TextBoxFor(i => i.InvoiceDate, new { @class = "form-control" })
+    @Html.TextBoxFor(i => i.ProductTotal, new { @class = "form-control" })
+    @Html.TextBoxFor(i => i.SalesTax, new { @class = "form-control" })
+    @Html.TextBoxFor(i => i.Shipping, new { @class = "form-control" })
+    @Html.TextBoxFor(i => i.InvoiceTotal, new { @class = "form-control" })
+
+    <input type="submit" value="submit" class="btn btn-info" />
+}
+

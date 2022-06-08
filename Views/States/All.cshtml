@@ -1,0 +1,43 @@
+﻿@model List<Barton_Books.Models.State>
+@{
+    ViewBag.Title = "All";
+}
+
+<link rel="stylesheet" href="~/Content/main.css"/>
+<script src="~/Scripts/main.js"></script>
+
+<h2>All</h2>
+
+<a href="/States/Upsert/">Add New</a>
+
+<div class="row">
+    <div class="col-md-6">
+        <input id="txtSearch" type="text" class="form-control" placeholder="Search..." />
+    </div>
+    <div class="col-md-6">
+        <input type="button" class="btn btn-info" value="Search" onclick="searchStates();" />
+    </div>
+</div>
+
+<table class="table table-hover sortable">
+    <thead>
+        <tr>
+            <th onclick="sortStates(0);">State Code</th>
+            <th onclick="sortStates(1);">State Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var state in Model)
+        {
+            <tr>
+                <td>@state.StateCode</td>
+                <td>@state.StateName</td>
+                <td>
+                    <a href="/States/Upsert/@state.StateCode">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

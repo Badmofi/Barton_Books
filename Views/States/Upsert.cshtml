@@ -1,0 +1,16 @@
+﻿@model Barton_Books.Models.State
+@{
+    ViewBag.Title = "Upsert";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm("Upsert", "States", FormMethod.Post))
+{
+    @Html.TextBoxFor(s => s.StateCode, new { @class = "form-control" })
+    @Html.TextBoxFor(s => s.StateName, new { @class = "form-control" })
+
+
+    <input type="submit" value="submit" class="btn btn-info" />
+}
+

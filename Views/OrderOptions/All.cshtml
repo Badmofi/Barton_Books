@@ -1,0 +1,31 @@
+﻿@model List<Barton_Books.Models.OrderOption>
+@{
+    ViewBag.Title = "All";
+}
+
+<link rel="stylesheet" href="~/Content/main.css" />
+<script src="~/Scripts/main.js"></script>
+
+<h2>All</h2>
+
+
+<table class="table table-hover sortable">
+    <thead>
+        <tr>
+            <th onclick="sortOrderOptions(0);">Sales Tax Rate</th>
+            <th onclick="sortOrderOptions(1);">First Book Ship Charge</th>
+            <th onclick="sortOrderOptions(2);">Additional Book Ship Charge</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var option in Model)
+        {
+            <tr>
+                <td>@option.SalesTaxRate</td>
+                <td>@option.FirstBookShipCharge</td>
+                <td>@option.AdditionalBookShipCharge</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

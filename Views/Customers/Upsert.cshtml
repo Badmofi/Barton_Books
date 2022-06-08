@@ -1,0 +1,19 @@
+﻿@model Barton_Books.Models.Customer
+@{
+    ViewBag.Title = "Upsert";
+}
+
+<h2>Add a Customer</h2>
+
+@using (Html.BeginForm("Upsert", "Customers", FormMethod.Post))
+{
+    @Html.TextBoxFor(c => c.CustomerID, new { @class = "form-control" })
+    @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+    @Html.TextBoxFor(c => c.Address, new { @class = "form-control" })
+    @Html.TextBoxFor(c => c.City, new { @class = "form-control" })
+    @Html.TextBoxFor(c => c.State, new { @class = "form-control" })
+    @Html.TextBoxFor(c => c.ZipCode, new { @class = "form-control" })
+
+    <input type="submit" value="submit" class="btn btn-info" />
+}
+

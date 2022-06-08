@@ -1,0 +1,53 @@
+﻿@model List<Barton_Books.Models.Invoice>
+@{
+    ViewBag.Title = "All";
+}
+
+<link rel="stylesheet" href="~/Content/main.css" />
+<script src="~/Scripts/main.js"></script>
+
+<h2>All</h2>
+
+<a href="/Invoices/Upsert/0">Add New</a>
+
+<div class="row">
+    <div class="col-md-6">
+        <input id="txtSearch" type="text" class="form-control" placeholder="Search..." />
+    </div>
+    <div class="col-md-6">
+        <input type="button" class="btn btn-info" value="Search" onclick="searchInvoices();" />
+    </div>
+</div>
+
+<table class="table table-hover sortable">
+    <thead>
+        <tr>
+            <th onclick="sortInvoices(0);">Invoice ID</th>
+            <th onclick="sortInvoices(1);">Customer ID</th>
+            <th onclick="sortInvoices(2);">Invoice Date</th>
+            <th onclick="sortInvoices(3);">Product Total</th>
+            <th onclick="sortInvoices(4);">Sales Tax</th>
+            <th onclick="sortInvoices(5);">Shipping</th>
+            <th onclick="sortInvoices(6);">Invoice Total</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var invoice in Model)
+        {
+        <tr>
+            <td>@invoice.InvoiceID</td>
+            <td>@invoice.CustomerID</td>
+            <td>@invoice.InvoiceDate</td>
+            <td>@invoice.ProductTotal</td>
+            <td>@invoice.SalesTax</td>
+            <td>@invoice.Shipping</td>
+            <td>@invoice.InvoiceTotal</td>
+            <td>
+                <a href="/Invoices/Upsert/@invoice.InvoiceID">Edit</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
